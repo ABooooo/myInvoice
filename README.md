@@ -63,7 +63,8 @@ Use ``npm install`` to install all dependecies and then run ``ng serve`` for a d
 To log into the app enter your login credentials that you entered when created a user in Firebase Back-End. If everything was correctly configured you should be able to fully use the app functions. If not, check the steps one more time.
 
 Building the project
-Run ``ng build`` to build the project. The build artifacts will be stored in the dist/ directory. Use the -prod flag for a production build. To deplox the app you'll need static website hosting. There a lot of options and Firebase is also one of them. [Here you'll find more information about it.]
+
+Run ``ng build`` to build the project. The build artifacts will be stored in the ``dist/ directory``. Use the ``-prod`` flag for a production build. To deploy the app you'll need static website hosting. There a lot of options and Firebase is also one of them. [Here you'll find more information about it.]
 
 ## What's next
 Probably some code optimization would be good ecspecially as it is a beginner project. But it probably won't happen in this version as I am planning to rebuild all from start with nodejs and mongoDB. I will also add some further functionalies like saving invoices and dashboard for outcome analysis.
