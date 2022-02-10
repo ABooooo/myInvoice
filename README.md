@@ -32,7 +32,7 @@ I'm stationed in Europe so I've inserted an option to choose if invoice is for h
 
 You will need Angular CLI and Node JS installed globally. Otherwise you will also need gmail account as I use Firebase for Back-End.
 
-##### Firebase
+### Firebase
 - Log into firebase and create a new project.
 - Inside project under Authentication add first new sign-in metod (email/password) and then create a new user
 - Create new Realtime Database
@@ -49,7 +49,7 @@ You will need Angular CLI and Node JS installed globally. Otherwise you will als
 
 You can remove auth.uid part but in this case you will permanently receive e-mails from Firebase that your DB isn't save, although auth do cover basic security measures.
 
-##### App
+### App
 Copy your Web Api Key from project settings and insert it at ``firebaseAPIKey`` param in environment files. You'll find API Key in your Firebase project settings in general tab.
 
 Copy your DB Url from Realtime Database tab and insert it at ``firebaseUrl`` param in environment files. IMPORTANT: remove slash at the end!
@@ -62,7 +62,7 @@ Use ``npm install`` to install all dependecies and then run ``ng serve`` for a d
 
 To log into the app enter your login credentials that you entered when created a user in Firebase Back-End. If everything was correctly configured you should be able to fully use the app functions. If not, check the steps one more time.
 
-Building the project
+**Building the project**
 
 Run ``ng build`` to build the project. The build artifacts will be stored in the ``dist/directory``. Use the ``-prod`` flag for a production build. To deploy the app you'll need static website hosting. There a lot of options and Firebase is also one of them. [Here you'll find more information about it.]
 
