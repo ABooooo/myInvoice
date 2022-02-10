@@ -10,7 +10,7 @@ As already said I wanted something with simple interface and only basic function
 
 The general page breakdown and functionalities looks like this:
 
-##### Home page (URL: /#/ )
+##### Home page
 - Authentication (Login, auto-logout)
 
 ##### Invoice Page
@@ -24,7 +24,7 @@ The general page breakdown and functionalities looks like this:
 - Edit customer data
 - Delete customer
 
-I'm stationed in Europe so I've inserted an option to choose if invoice is for home or foreign country. That is because of tax calculation. Please update this function according to your needs and your country regulations.
+I'm stationed in Europe so I've inserted an option to choose if invoice is for home or foreign country. That is because of tax calculation. Please update this function accordingly to your needs and your country regulations.
 
 
 ## Getting started
@@ -51,7 +51,7 @@ Run ``ng build`` to build the project. The build artifacts will be stored in the
 }
 ```
 
-You can remove auth.uid part but in this case you will permanently receive e-mails from firevase that your DB isn't save althoug auth do cover basic security measures.
+You can remove auth.uid part but in this case you will permanently receive e-mails from Firebase that your DB isn't save, although auth do cover basic security measures.
 
 ##### App
 Copy your Web Api Key from project settings and insert it at ``firebaseAPIKey`` param in environment files.
@@ -61,7 +61,7 @@ Insert your company address in ``invoice-overview.component.html``. In same file
 In ``app.module.ts`` you'll also find localisation. Currently "en-EN". Change it to your needs.
 
 ## What's next
-Probably some code optimization would be good ecspecially as it is a beginner project. But it probably won't happen in this version as I am planning to rebuild all from start with nodejs and mongoDB. I will also add some further functionalies as saving invoices and dashboard for outcome analysis.
+Probably some code optimization would be good ecspecially as it is a beginner project. But it probably won't happen in this version as I am planning to rebuild all from start with nodejs and mongoDB. I will also add some further functionalies like saving invoices and dashboard for outcome analysis.
 
 ## Conclusion
 If you like this app you can use it for non- or commercial purposes. You can use it as a playground for learning new skills or change it on your own free will. I would appreciate a star click.
