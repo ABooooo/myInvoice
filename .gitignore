@@ -9,6 +9,8 @@
 
 # dependencies
 /.angular
+/.firebase
+.firebaserc
 /dist
 /node_modules
 
