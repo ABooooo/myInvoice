@@ -51,6 +51,7 @@ You can remove auth.uid part but in this case you will permanently receive e-mai
 
 ##### App
 Copy your Web Api Key from project settings and insert it at ``firebaseAPIKey`` param in environment files. You'll find API Key in your Firebase project settings in general tab.
+
 Copy your DB Url from Realtime Database tab and insert it ``firebaseUrl`` param in environment files. IMPORTANT: remove slash at the end!
 
 Insert your company address in ``invoice-overview.component.html``. In same file you can also change currency (currently EUR) and all other texts for your invoice. To change logo simply replace ``src/assets/img/your-logo.png`` file.
