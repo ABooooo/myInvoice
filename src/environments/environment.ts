@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  firebaseAPIKey: 'your firebase Web API Key'
+  firebaseAPIKey: 'your firebase Web API Key',
+  firebaseUrl: 'your firebase project url' // IMPORTANT: remove slash at the end
 };
 
 /*

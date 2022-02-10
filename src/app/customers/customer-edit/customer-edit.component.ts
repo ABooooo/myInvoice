@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormControl } from '@angular/forms';
+import { environment } from "../../../environments/environment";
 
 import { map } from 'rxjs/operators';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -13,7 +14,6 @@ import { NgSelectComponent } from '@ng-select/ng-select';
   templateUrl: './customer-edit.component.html'
 })
 export class CustomerEditComponent implements OnInit {
-  firebaseUrl = 'your firebase project url';
   customersData = [];
   selectedCustomerId = null;
   editCustomer = false;
@@ -35,7 +35,7 @@ export class CustomerEditComponent implements OnInit {
 
   private getCustomers() {
     this.http
-      .get(this.firebaseUrl + '/customers.json')
+      .get(environment.firebaseUrl + '/customers.json')
       .pipe(map(responseData => {
         const customerArray = [];
         for (const key in responseData) {
@@ -52,7 +52,7 @@ export class CustomerEditComponent implements OnInit {
 
     onEditCustomer() {
       this.http
-        .get(this.firebaseUrl + '/customers/' + this.selectedCustomerId + '.json')
+        .get(environment.firebaseUrl + '/customers/' + this.selectedCustomerId + '.json')
         .subscribe(responseData => {
           const customerData = JSON.parse(JSON.stringify(responseData));
           let currentCompany = customerData.company;
@@ -83,7 +83,7 @@ export class CustomerEditComponent implements OnInit {
 
       if (this.selectedCustomerId !== null) {
       this.http
-        .patch(this.firebaseUrl + '/customers/' + this.selectedCustomerId + '.json', {
+        .patch(environment.firebaseUrl + '/customers/' + this.selectedCustomerId + '.json', {
           company: newCompany,
           extended: newExtended,
           address: newAddress,

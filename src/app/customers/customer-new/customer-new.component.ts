@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, NgForm, Validators } from '@angular/forms';
+import { environment } from "../../../environments/environment";
 
 
 @Component({
@@ -8,7 +9,6 @@ import { FormGroup, NgForm, Validators } from '@angular/forms';
   templateUrl: './customer-new.component.html'
 })
 export class CustomerNewComponent implements OnInit {
-  firebaseUrl = 'your firebase project url';
   showSuccessAlert = false;
   formErrorMessage = false;
   errorMessage = null;
@@ -22,7 +22,7 @@ export class CustomerNewComponent implements OnInit {
       // Send Http request
       this.http
       .post(
-        this.firebaseUrl + '/customers.json',
+        environment.firebaseUrl + '/customers.json',
         postData
       )
       .subscribe(responseData => {

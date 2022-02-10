@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { environment } from "../../../environments/environment";
 
 import { Service } from 'src/app/shared/services.model';
 import { InvoiceService } from '../invoice.service';
@@ -14,7 +15,6 @@ import { AuthService } from 'src/app/auth/auth.service';
   templateUrl: './invoice-new.component.html'
 })
 export class InvoiceNewComponent implements OnInit {
-  firebaseUrl = 'your firebase project url';
   customersData = [];
   selectedCustomerId = null;
   selectedCustomerData: {};
@@ -68,7 +68,7 @@ export class InvoiceNewComponent implements OnInit {
 
   private getCustomers() {
     this.http
-      .get(this.firebaseUrl + '/customers.json')
+      .get(environment.firebaseUrl + '/customers.json')
       .pipe(map(responseData => {
         const customerArray = [];
         for (const key in responseData) {
@@ -83,7 +83,7 @@ export class InvoiceNewComponent implements OnInit {
 
   getCustomerById() {
     return this.http
-    .get(this.firebaseUrl + '/customers/' + this.selectedCustomerId + '.json')
+    .get(environment.firebaseUrl + '/customers/' + this.selectedCustomerId + '.json')
     .subscribe(responseData => {
       const customerData = JSON.parse(JSON.stringify(responseData));
       this.selectedCustomerData = customerData;
