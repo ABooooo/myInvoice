@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+// external css files
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "assets/sass/fontawesome";
+@import "assets/sass/ngSelect";
+
+// global styles
+@import "assets/sass/fonts";
+@import "assets/sass/vars";
+
+// mixins
+@import "assets/sass/mixins";
+
+// styles
+@import "assets/sass/base";
+@import "assets/sass/login";
+
+// overrides
+@import "assets/sass/overrides";
+
+// print
+@import "assets/sass/print";

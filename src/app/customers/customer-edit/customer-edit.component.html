@@ -1,0 +1,98 @@
+<h1 class="mb-5">Edit customer</h1>
+
+<div class="row">
+    <div class="col-10">
+        <div *ngIf="showSuccessAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+            Customer was successfully deleted!
+            <button type="button" class="btn-close" (click)="dismissSuccessAlertBox()"></button>
+        </div>
+
+        <div *ngIf="showErrorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+            Ups something went wrong!
+        </div>
+
+        <ng-select [items]="customersData" bindLabel="company" autofocus bindValue="id" placeholder="Select a customer"
+            [(ngModel)]="selectedCustomerId">
+        </ng-select>
+        <button type="button" class="btn btn-secondary btn-sm mt-1" (click)="reloadCustomers()">Reload
+            customers
+        </button>
+        <div class="loader" *ngIf="isLoading">
+            <app-loader-button></app-loader-button>
+        </div>
+    </div>
+    <div class="col-2">
+        <ul class="list-group list-group-horizontal" *ngIf="selectedCustomerId">
+            <li>
+                <a class="edit-position" (click)="onEditCustomer()">
+                    <span class="fa-stack fa-1x">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="delete-position" (click)="openModalDelete()">
+                    <span class="fa-stack fa-1x">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-times fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row mt-5" *ngIf="editCustomer">
+    <div *ngIf="showEditSuccessAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+        Customer was successfully edited!
+        <button type="button" class="btn-close" (click)="dismissEditSuccessAlertBox()"></button>
+    </div>
+
+    <div *ngIf="showEditErrorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+      ID cannot be empty! Select a customer you want to edit.
+      <button type="button" class="btn-close" (click)="dismissEditErrorAlertBox()"></button>
+  </div>
+
+    <div class="col-12">
+        <p class="small link-secondary"><b>ID:</b> {{selectedCustomerId}}</p>
+        <form [formGroup]="editCustomerForm" (ngSubmit)="onSaveCustomerData()">
+            <div class="mb-3">
+                <input
+                class="form-control"
+                type="text"
+                placeholder="Company*"
+                formControlName="company"
+                required>
+            </div>
+            <div class="mb-3">
+                <input
+                class="form-control"
+                type="text"
+                placeholder="Extended"
+                formControlName="extended">
+            </div>
+            <div class="mb-3">
+                <input
+                class="form-control"
+                type="text"
+                placeholder="Address*"
+                formControlName="address"
+                required>
+            </div>
+            <div class="mb-3">
+                <input
+                class="form-control"
+                type="text"
+                placeholder="Post*"
+                formControlName="post"
+                required>
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="text" placeholder="Tax number" formControlName="tax">
+            </div>
+            <button type="submit" class="btn btn-success me-1" [disabled]="!editCustomerForm.valid">Save</button>
+            <button type="button" class="btn btn-warning" (click)="onCancelCustomerEdit()">Cancel</button>
+        </form>
+    </div>
+</div>

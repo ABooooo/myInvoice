@@ -1,0 +1,104 @@
+<h1 class="mb-5">New invoice</h1>
+
+<div class="row mb-3">
+  <div *ngIf="showErrorAlert" class="alert alert-danger alert-dismissible fade show mb-5" role="alert">
+    Customer and/or Invoice number fields cannot be empty!
+    <button type="button" class="btn-close" (click)="dismissErrorAlertBox()"></button>
+</div>
+<div *ngIf="showSubmitErrorAlert" class="alert alert-danger alert-dismissible fade show mb-5" role="alert">
+  {{submitErrorAlertText}}
+  <button type="button" class="btn-close" (click)="dismissSubmitErrorAlertBox()"></button>
+</div>
+<div class="col-xs-12 col-xxl-8">
+    <label class="w-100">Invoice Adress
+      <ng-select [items]="customersData"
+           bindLabel="company"
+           autofocus
+           bindValue="id"
+           placeholder="Select a customer"
+           [(ngModel)]="selectedCustomerId"
+           (change)="getCustomerById()">
+        </ng-select>
+    </label>
+  </div>
+
+  <div class="col-xs-12 col-xxl-2">
+    <label>Price per hour
+      <input class="form-control" type="number" min="60" value="75" #hourRateInput>
+    </label>
+  </div>
+
+  <div class="col-xs-12 col-xxl-2">
+    <label>Invoice number
+      <input #invNumberInput
+      placeholder='Invoice'
+      class="form-control"
+      type="number"
+      min="0"
+      pattern="[0-9]*"
+      id="invNumberInput"
+      (change)="invNumberChanged(invNumberInput.value)">
+    </label>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="form-check">
+      <input #isAbroadInput
+      class="form-check-input"
+      type="checkbox"
+      id="isAbroadInput"
+      (change)="isAbroadChanged(isAbroadInput.checked)">
+      <label class="form-check-label" for="isAbroadInput">
+        Abroad
+      </label>
+    </div>
+  </div>
+</div>
+  <form class="position-form">
+    <div class="row mb-3">
+    <div class="col-xs-12 col-xxl-10">
+      <label class="w-100">Add position text
+        <input type="text" placeholder="Activity" class="form-control" #activityInput>
+      </label>
+    </div>
+
+    <div class="col-xs-12 col-xxl-2">
+      <label>Add hours
+        <input type="number" step="0.25" min="0.25" placeholder="Hours" class="form-control" [disabled]="isFlatRate" #hoursInput>
+      </label>
+    </div>
+  </div>
+
+  <div class="row mb-3 align-items-end">
+    <div class="col-xs-12 col-lg-3">
+      <div class="form-check">
+        <input #isFlatRateInput
+          class="form-check-input"
+          type="checkbox"
+          id="flexCheckDefault"
+          (change)="onFlatRateChanged(isFlatRateInput.checked)">
+        <label class="form-check-label" for="flexCheckDefault">
+          Flat rate
+        </label>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-lg-4">
+      <label>Add flat rate
+        <input class="form-control" type="number" min="1" placeholder="Flat rate" [disabled]="!isFlatRate" #flatRateInput>
+      </label>
+    </div>
+
+    <div class="col-xs-12 col-lg-5 align-right">
+      <button type="button" class="btn btn-success" (click)="onAddActivity()">Add</button>
+    </div>
+  </div>
+  </form>
+  <div class="row">
+  <div class="col-12 mt-5">
+    <button type="button" class="btn btn-danger btn-sm float-start" (click)="onResetAll()">Reset all</button>
+    <button type="button" class="btn btn-warning float-end" (click)="onGeneratePDF()">Save as PDF</button>
+  </div>
+</div>
+

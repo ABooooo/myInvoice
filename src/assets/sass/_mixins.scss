@@ -1,0 +1,36 @@
+/*
+ * @copyright: Copyright (c) 2018 Ales Bombek ab-design.at
+ */
+
+
+@mixin smallDev {
+  @media (min-width: $smallDev) { @content; }
+}
+
+@mixin mediumDev {
+  @media (min-width: $mediumDev) { @content; }
+}
+
+@mixin largeDev {
+  @media (min-width: $largeDev) { @content; }
+}
+
+@mixin exLargeDev {
+  @media (min-width: $exLargeDev) { @content; }
+}
+
+@mixin noPaddMar {
+  padding: 0;
+  margin: 0;
+}
+
+@mixin listNoBullets ($display:inline-block) {
+  list-style: none;
+  display: $display;
+}
+
+@mixin removeBullets {
+    content: "";
+    padding-right: 0;
+    text-align: inherit;
+}

@@ -1,0 +1,18 @@
+<div class="row invoice-position" *ngFor="let serviceEl of services; index as i" (mouseenter) ="onMouseEnter(i)"  (mouseleave) ="onMouseLeave(i)">
+  <div class="col-1 p-0">{{i + 1}}</div>
+  <div class="col-7 p-0">{{serviceEl.activity}}</div>
+  <div class="col-1 text-end">{{serviceEl.hours}}</div>
+
+  <div class="col-1 text-end" *ngIf="!serviceEl.isFlatRate; else isFlatRate">{{serviceEl.hourRate}}</div>
+  <ng-template #isFlatRate><div class="col-1">&nbsp;</div></ng-template>
+
+  <div class="col-2 text-end" *ngIf="!serviceEl.isFlatRate; else flatRateAmount">{{serviceEl.hours * serviceEl.hourRate  | number: '1.2-2'}}</div>
+  <ng-template #flatRateAmount><div class="col-2 text-end">{{serviceEl.flatRate  | number: '1.2-2'}}</div></ng-template>
+
+  <div class="no-print-area">
+    <div class="action-buttons" id="buttons-{{i}}" style="display: none;">
+      <a class="edit-position-link" (click)="onEditItemClick(i, serviceEl.activity, serviceEl.hours, serviceEl.hourRate, serviceEl.isFlatRate, serviceEl.flatRate)">edit</a>
+      <a class="delete-position-link" (click)="onDeleteItemClick(i)">delete</a>
+    </div>
+</div>
+</div>

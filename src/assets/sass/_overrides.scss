@@ -1,0 +1,45 @@
+/*
+ * @copyright: Copyright (c) 2018 Ales Bombek ab-design.at
+ */
+
+table thead th, table thead td, table tfoot th, table tfoot td {
+    padding: 0.3rem 0.5rem;
+}
+
+table tbody th, table tbody td {
+    padding: 0.3rem 0.5rem;
+}
+
+.list-group li {
+    list-style: none;
+}
+
+.modal-footer {
+    justify-content: space-between;
+}
+
+.modal-header {
+    .modal-title {
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+    .close {
+        background-color: transparent;
+        border: none;
+        font-size: 1.5rem;
+
+        &:focus-visible {
+          outline: none;
+        } 
+    }
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    //background-color: gainsboro;
+
+    border-bottom: solid 1px gainsboro;
+}
+
+.btn-check:focus + .btn-secondary, .btn-secondary:focus {
+    box-shadow: none;
+}

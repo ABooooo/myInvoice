@@ -1,0 +1,121 @@
+/*
+ * @copyright: Copyright (c) 2018 Ales Bombek ab-design.at
+ */
+@media print {
+  #cmd,
+  .action-buttons,
+  .no-print-area {
+    visibility: hidden;
+  }
+
+  .columns {
+    border-left: none !important;
+  }
+
+  #content {
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    bottom: 30px;
+    width: 100%;
+    padding: 0 30px;
+
+    .row {
+      padding-right: 0;
+      margin-right: 0;
+    }
+
+    .your-address {
+      font-size: 0.8rem;
+      margin-bottom: 80px;
+    }
+
+    .invoice-date {
+      font-size: 1rem;
+      margin-bottom: 50px;
+    }
+
+    .invoice-number {
+      margin-bottom: 0;
+    }
+
+    #customer-address p {
+      font-size: 1rem;
+    }
+
+    .invoice-table-header {
+      background-color: #f8f8f8 !important;
+      -webkit-print-color-adjust: exact;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      margin: 0 !important;
+      height: 35px !important;
+    }
+
+    .invoice-positions-wrapper {
+      margin-top: -40px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .invoice-position {
+      padding-top: 5px !important;
+      padding-bottom: 5px !important;
+      padding-left: 15px !important;
+      margin-left: -15px !important; 
+    }
+
+    .end-sum {
+      margin-top: 20px;
+    }
+  }
+
+  .info {
+    .law-info {
+      width: 600px !important;
+      margin: 0 auto;
+      background-color: #d3d3d3 !important;
+      -webkit-print-color-adjust: exact;
+    }
+  }
+
+  .footer-info {
+    text-align: center;
+    font-size: 0.8rem;
+    width: 800px;
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .logo {
+    width: 200px !important;
+    height: auto !important;
+  }
+
+  .unstriped thead {
+    background-color: #f8f8f8 !important;
+    border: 1px solid #f1f1f1 !important;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .unstriped tbody tr:nth-child(even) {
+    background-color: #f1f1f1 !important;
+    -webkit-print-color-adjust: exact;
+  }
+
+  table thead th, table thead td, table tfoot th, table tfoot td {
+      padding: 0.3rem 0.5rem;
+  }
+
+  table tbody th, table tbody td {
+      padding: 0.3rem 0.5rem;
+  }
+
+  .first-column { width:5%;}
+  .second-column { width:60%; }
+  .third-column { width:9%; }
+  .fourth-column { width:9%; }
+  .fifth-column { width:250px; }     
+}

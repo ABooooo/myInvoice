@@ -1,0 +1,62 @@
+<h1 class="mb-5">Add new customer</h1>
+
+<div *ngIf="showSuccessAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+    Customer was added successfully!
+    <button type="button" class="btn-close" (click)="dismissAlertBox()"></button>
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ errorMessage }}
+</div>
+
+<div *ngIf="formErrorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+    You cannot insert new customer without Company, Address and Post data!
+    <button type="button" class="btn-close" (click)="dismissForErrorAlertBox()"></button>
+</div>
+
+<form #newCustomerForm="ngForm" (ngSubmit)="onNewCustomer(newCustomerForm.value, newCustomerForm)" >
+    <div class="mb-3">
+        <input
+        class="form-control"
+        type="text"
+        placeholder="Company*"
+        ngModel
+        name="company"
+        required>
+    </div>
+    <div class="mb-3">
+        <input
+        class="form-control"
+        type="text"
+        placeholder="Extended"
+        ngModel
+        name="extended">
+    </div>
+    <div class="mb-3">
+        <input
+        class="form-control"
+        type="text"
+        placeholder="Address*"
+        ngModel
+        name="address"
+        required>
+    </div>
+    <div class="mb-3">
+        <input
+        class="form-control"
+        type="text"
+        placeholder="Post*"
+        ngModel
+        name="post"
+        required>
+    </div>
+    <div class="mb-3">
+        <input
+        class="form-control"
+        type="text"
+        placeholder="Tax number"
+        ngModel
+        name="tax">
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!newCustomerForm.valid">Add</button>
+</form>

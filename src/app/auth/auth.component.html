@@ -1,0 +1,42 @@
+<div class="login-background"></div>
+<div class="row login-form">
+    <div class="col-4 offset-4">
+        <div class="login-form-wrapper shadow">
+        <span class="logoText">myInvoice</span>
+        <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{error}}
+            <button type="button" class="btn-close" (click)="dismissErrorAlertBox()"></button>
+        </div>
+        <div class="loader" *ngIf="isLoading">
+            <app-loader></app-loader>
+        </div>
+        <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+            <div class="form-group">
+                <label for="email"></label>
+                <input 
+                type="email" 
+                id="email" 
+                class="form-control"
+                ngModel
+                name="email"
+                required
+                email="">
+            </div>
+            <div class="form-group">
+                <label for="password"></label>
+                <input 
+                type="password" 
+                id="password" 
+                class="form-control"
+                ngModel
+                name="password"
+                required
+                minlength="6">
+            </div>
+            <div>
+                <button class="btn btn-primary mt-4" [disabled]="!authForm.valid">Login</button>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>

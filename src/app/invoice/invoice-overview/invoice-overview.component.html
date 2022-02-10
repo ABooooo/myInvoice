@@ -1,0 +1,93 @@
+<div id="content">
+  <div class="row">
+
+    <div class="col-12 columns">
+      <div class="your-address">
+        <img class="logo" src="../../assets/img/your-logo.png" />
+        <p>
+          Here comes your company address
+        </p>
+      </div>
+    </div>
+
+    <div class="col-6 columns">
+      <div id="customer-address">
+        <p class="customer-name">{{data.customerData.company}}</p>
+        <p>{{data.customerData.extended}}<br>
+          {{data.customerData.address}}<br>
+          {{data.customerData.post}}
+        </p>
+        <p class="customer-tax">{{data.customerData.tax}}</p>
+      </div>
+    </div>
+
+    <div class="col-6 columns">
+      <div class="invoice-number">
+        <p>Invoice Nr.: {{data.invoiceNum}}-{{currentYear}}</p>
+
+      </div>
+      <div class="invoice-date">
+        <p><span class="date">{{currentDate | date:'dd. MMMM y'}}</span></p>
+      </div>
+    </div>
+
+    <div class="row invoice-table-header">
+      <div class="col-1">Pos</div>
+      <div class="col-7">Activity</div>
+      <div class="col-1 text-end">Hr.</div>
+      <div class="col-1 text-end">Cost</div>
+      <div class="col-2 text-end">Sum</div>
+    </div>
+
+    <div class="invoice-positions-wrapper">
+    <app-invoice-item (totalSumChangedEvent)="updateTotalSum($event)"></app-invoice-item>
+    </div>
+
+    <div class="col-12">
+      <p class="align-right end-sum" *ngIf="data.isAbroad">
+        Total: {{totalSum | number: '1.2-2'}} EUR
+      </p>
+      <div class="align-right steuerNum" *ngIf="!data.isAbroad">
+        <table>
+          <tr>
+            <td>Subtotal:</td>
+            <td>{{totalSum | number: '1.2-2'}}</td>
+          </tr>
+          <tr>
+            <td>Tax rate:</td>
+            <td>20%</td>
+          </tr>
+          <tr>
+            <td>Value added tax:</td>
+            <td>{{totalTaxSum | number: '1.2-2'}}</td>
+          </tr>
+        </table>
+      </div>
+      <p class="align-right end-sum" *ngIf="!data.isAbroad">
+        Total: {{totalSum + totalTaxSum | number: '1.2-2'}} EUR
+      </p>
+      <p class="align-right">Payable upon receipt</p>
+    </div>
+
+    <div class="columns col-12 info">
+      <div class="law-info" *ngIf="data.isAbroad">
+        <p>
+          Some tax information.<br />
+          If you are sending invoice to reign country!
+        </p>
+      </div>
+    </div>
+
+    <div class="columns col-12">
+      <div class="footer-info">
+        <p *ngIf="data.isAbroad">
+          Your bank data, tax number etc.
+        </p>
+        <p *ngIf="!data.isAbroad">
+          Your bank data, tax number etc.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
