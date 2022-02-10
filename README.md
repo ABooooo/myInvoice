@@ -1,8 +1,8 @@
 # myInvoice App
 This project was created because I needed new app for my invoices and on the other side was this a perfekt oportunity to start learning Angular. Goal was to create an app with a simple interface and a few basic functionalities.
 
-[DEMO]
-U: some.fake@email.com
+[DEMO]<br />
+U: some.fake@email.com<br />
 P: tester
 
 ## Functionality overview
