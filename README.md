@@ -66,6 +66,8 @@ To log into the app enter your login credentials that you entered when created a
 
 Run ``ng build`` to build the project. The build artifacts will be stored in the ``dist/directory``. Use the ``-prod`` flag for a production build. To deploy the app you'll need static website hosting. There a lot of options and Firebase is also one of them. [Here you'll find more information about it.]
 
+The app is not mobile optimized because I'll use it strickly on higher resolutions. If you need to use it on mobile or tablet resolution, feel free to change it according to your needs and expectations. That's why is also responsive  only partly optimized.
+
 ## What's next
 Probably some code optimization would be good ecspecially as it is a beginner project. But it won't happen in this version as I am planning to rebuild all from start with nodejs and mongoDB. I will also add some further functionalies like saving invoices and dashboard for outcome analysis.
 
